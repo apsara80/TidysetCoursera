@@ -54,4 +54,4 @@ tidyset <-
         extract %>%
         group_by (subject, activity) %>% 
         summarise_all (funs(mean)) 
-write.table (tidyset, "tidyset.txt")
+write.table (tidyset, "tidyset.txt", row.name=FALSE)

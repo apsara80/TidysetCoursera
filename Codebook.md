@@ -94,7 +94,76 @@ The R script downloads the above dataset (a zip file), and unzips the file in th
 	`names(extract) <- gsub("Gyro", "Gyroscope", names(extract))`
 	`names(extract) <- gsub("Mag", "Magnitude", names(extract))`
 
+All variable names in the final data set *extract* are as follows: 
 
+* subject
+* activity
+* TimeBodyAccelerometer-mean-X
+* TimeBodyAccelerometer-mean-Y
+* TimeBodyAccelerometer-mean-Z
+* TimeGravityAccelerometer-mean-X
+* TimeGravityAccelerometer-mean-Y
+* TimeGravityAccelerometer-mean-Z
+* TimeBodyAccelerometerJerk-mean-X
+* TimeBodyAccelerometerJerk-mean-Y
+* TimeBodyAccelerometerJerk-mean-Z
+* TimeBodyGyroscope-mean-X
+* TimeBodyGyroscope-mean-Y
+* TimeBodyGyroscope-mean-Z
+* TimeBodyGyroscopeJerk-mean-X
+* TimeBodyGyroscopeJerk-mean-Y
+* TimeBodyGyroscopeJerk-mean-Z
+* TimeBodyAccelerometerMagnitude-mean
+* TimeGravityAccelerometerMagnitude-mean
+* TimeBodyAccelerometerJerkMagnitude-mean
+* TimeBodyGyroscopeMagnitude-mean
+* TimeBodyGyroscopeJerkMagnitude-mean
+* FreqDomainSignalBodyAccelerometer-mean-X
+* FreqDomainSignalBodyAccelerometer-mean-Y
+* FreqDomainSignalBodyAccelerometer-mean-Z
+* FreqDomainSignalBodyAccelerometerJerk-mean-X
+* FreqDomainSignalBodyAccelerometerJerk-mean-Y
+* FreqDomainSignalBodyAccelerometerJerk-mean-Z
+* FreqDomainSignalBodyGyroscope-mean-X
+* FreqDomainSignalBodyGyroscope-mean-Y
+* FreqDomainSignalBodyGyroscope-mean-Z
+* FreqDomainSignalBodyAccelerometerMagnitude-mean
+* FreqDomainSignalBodyBodyAccelerometerJerkMagnitude-mean
+* FreqDomainSignalBodyBodyGyroscopeMagnitude-mean
+* FreqDomainSignalBodyBodyGyroscopeJerkMagnitude-mean
+* TimeBodyAccelerometer-std-X
+* TimeBodyAccelerometer-std-Y
+* TimeBodyAccelerometer-std-Z
+* TimeGravityAccelerometer-std-X
+* TimeGravityAccelerometer-std-Y
+* TimeGravityAccelerometer-std-Z
+* TimeBodyAccelerometerJerk-std-X
+* TimeBodyAccelerometerJerk-std-Y
+* TimeBodyAccelerometerJerk-std-Z
+* TimeBodyGyroscope-std-X
+* TimeBodyGyroscope-std-Y
+* TimeBodyGyroscope-std-Z
+* TimeBodyGyroscopeJerk-std-X
+* TimeBodyGyroscopeJerk-std-Y
+* TimeBodyGyroscopeJerk-std-Z
+* TimeBodyAccelerometerMagnitude-std
+* TimeGravityAccelerometerMagnitude-std
+* TimeBodyAccelerometerJerkMagnitude-std
+* TimeBodyGyroscopeMagnitude-std
+* TimeBodyGyroscopeJerkMagnitude-std
+* FreqDomainSignalBodyAccelerometer-std-X
+* FreqDomainSignalBodyAccelerometer-std-Y
+* FreqDomainSignalBodyAccelerometer-std-Z
+* FreqDomainSignalBodyAccelerometerJerk-std-X
+* FreqDomainSignalBodyAccelerometerJerk-std-Y
+* FreqDomainSignalBodyAccelerometerJerk-std-Z
+* FreqDomainSignalBodyGyroscope-std-X
+* FreqDomainSignalBodyGyroscope-std-Y
+* FreqDomainSignalBodyGyroscope-std-Z
+* FreqDomainSignalBodyAccelerometerMagnitude-std
+* FreqDomainSignalBodyBodyAccelerometerJerkMagnitude-std
+* FreqDomainSignalBodyBodyGyroscopeMagnitude-std
+* FreqDomainSignalBodyBodyGyroscopeJerkMagnitude-std
 
 **Tidy data set**
 
@@ -106,4 +175,4 @@ Using the 'dplyr' package, the *extract* data frame is grouped by subject and by
         extract %>%
         group_by (subject, activity) %>% 
         summarise_all (funs(mean))
-	write.table (tidyset, "tidyset.txt")
+	write.table (tidyset, "tidyset.txt", row.name=FALSE)
