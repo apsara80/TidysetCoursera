@@ -60,11 +60,13 @@ The R script downloads the above dataset (a zip file), and unzips the file in th
 	The following codes identify only the measurement names containing "mean()" and "std()" in the *measure_names* vector, and save the indices as numeric vectors named *means* and *stds*. 
 
 	`means <- which (grepl("\\<mean()\\>", measure_names))`
-`stds <- which(grepl("\\<std()\\>", measure_names))`
+	
+	`stds <- which(grepl("\\<std()\\>", measure_names))`
 
 	Since the measurements are binded after the first two columns ('subject' and 'activity') in the *combined* data frame, adding two to the column indices in *means* and *stds* provides the correct columns for all variables containing 'mean()' and 'std()' in the *combined* data frame. The new column indices are saved as numeric vectors called *means_col* and *stds_col*.
 
 	`means_col <- means + 2` 
+	
 	`stds_col <- stds + 2`
 
 	Subsetting only the variables needed from the *combined* data frame, the *extract* data frame is created with the following code.
